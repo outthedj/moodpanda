@@ -6,6 +6,8 @@ import org.testng.annotations.BeforeClass;
 import staticdata.WebTimeouts;
 import staticdata.WebUrls;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+
 public class BaseTest {
 
     @BeforeClass
@@ -17,6 +19,6 @@ public class BaseTest {
 
     @AfterClass
     public void tearDown() {
-
+        closeWebDriver();
     }
 }
