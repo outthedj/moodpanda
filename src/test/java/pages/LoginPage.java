@@ -13,6 +13,7 @@ public class LoginPage {
     private SelenideElement emailInput = $(By.xpath("//input[@placeholder='MoodPanda registered email ']"));
     private SelenideElement passwordInput = $(By.name("password"));
     private SelenideElement loginButton = $(By.xpath("//button[contains(., 'Login')]"));
+    private SelenideElement loginLogoImage = $(By.className("login-logo"));
 
     public void openLoginPage() {
         open(WebUrls.LOGIN_URL);
@@ -23,5 +24,9 @@ public class LoginPage {
         emailInput.sendKeys(email);
         passwordInput.sendKeys(password);
         loginButton.click();
+    }
+
+    public boolean isLoginLogoShown() {
+        return loginLogoImage.shouldBe(Condition.image).isDisplayed();
     }
 }
